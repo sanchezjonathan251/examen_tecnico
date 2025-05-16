@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "5363a7b6-7816-4791-a6af-585c340ddf79",
+		"name": "CollectionPostmanEmployeesAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44975869",
+		"_collection_link": "https://john-5523203.postman.co/workspace/John's-Workspace~3612fb35-6de4-4fec-8cfc-18491b51ff47/collection/44975869-5363a7b6-7816-4791-a6af-585c340ddf79?action=share&source=collection_link&creator=44975869"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/security/login?usuario=usuario&password=password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"security",
+						"login"
+					],
+					"query": [
+						{
+							"key": "usuario",
+							"value": "usuario"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c3VhcmlvIiwiZXhwIjoxNzQ3Mzg4NDIxLCJpYXQiOjE3NDczODQ4MjF9.x5toEuN5Jjm4h3-u5gn4nBmuO0dn0PVUK7RVt89MKXGy0HpO87sRfzSENCYNaf-jmPdzf9tPwDw0nCXphscDZA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/getAll/employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getAll",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c3VhcmlvIiwiZXhwIjoxNzQ3Mzg5ODE4LCJpYXQiOjE3NDczODYyMTh9.z-iDpdgSRim5asXgKS1tL13ES8vXGzatNRwx5boA7vYtAf1j9TVbY4g-1XXNJt_T0NnAmPJmo3--OSqCpyml0Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"register\" : \n    {\n        \"id\": 2,\n        \"firstName\": \"first name\",\n        \"middleName\": \"middle name\",\n        \"paternalSurname\": \"paternal surname\",\n        \"maternalSurname\": \"maternal surname\",\n        \"age\": 13,\n        \"gender\": \"M\",\n        \"birthday\": null,\n        \"position\": null\n    }\n}\n\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/register/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"register",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c3VhcmlvIiwiZXhwIjoxNzQ3Mzg5ODE4LCJpYXQiOjE3NDczODYyMTh9.z-iDpdgSRim5asXgKS1tL13ES8vXGzatNRwx5boA7vYtAf1j9TVbY4g-1XXNJt_T0NnAmPJmo3--OSqCpyml0Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 4,\n        \"middleName\": \"\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/update/employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"update",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c3VhcmlvIiwiZXhwIjoxNzQ3Mzg5ODE4LCJpYXQiOjE3NDczODYyMTh9.z-iDpdgSRim5asXgKS1tL13ES8vXGzatNRwx5boA7vYtAf1j9TVbY4g-1XXNJt_T0NnAmPJmo3--OSqCpyml0Q",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/delete/employee?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delete",
+						"employee"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
