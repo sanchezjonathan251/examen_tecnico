@@ -11,7 +11,7 @@ Aplicación RESTful desarrollada con Spring Boot para gestionar empleados. Inclu
 - Spring Web
 - Spring Security
 - Spring Data JPA
-- Base de datos: H2 / MySQL / PostgreSQL *(ajustar según corresponda)*
+- Base de datos: H2
 - Lombok
 - Springdoc OpenAPI (Swagger)
 - Maven
@@ -21,32 +21,46 @@ Aplicación RESTful desarrollada con Spring Boot para gestionar empleados. Inclu
 ## 📦 Instalación y Ejecución
 
 ### 1. Clona el repositorio
+Dentro del repositorio se encuentra parte de las evidencias de funcionamiento del Api así como la colección de endpoints en POSTMAN
+Además se encuentra el código realizado en la carpeta (empleados)
 
 ```bash
-git clone https://github.com/jonathansanchez/gestion-empleados.git
+git clone https://github.com/sanchezjonathan251/examen_tecnico.git
 cd gestion-empleados
-2. Configura application.properties (si usas base de datos externa)
-properties
-Copiar
-Editar
-server.port=8080
-spring.datasource.url=jdbc:mysql://localhost:3306/empleados
-spring.datasource.username=root
-spring.datasource.password=tu_clave
-spring.jpa.hibernate.ddl-auto=update
-⚠️ Si usas H2, asegúrate de tener:
 
-properties
-Copiar
-Editar
-spring.h2.console.enabled=true
-spring.h2.console.path=/h2-console
+
+2. Configura application.properties, el puerto por default es el 8080
+-/empleados/src/main/resources
+
+
+spring.application.name=empleados
+
+
+--La conexión a base de datos es a H2 en memoria
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=password
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.defer-datasource-initialization=true
+
+
+
+logging.level.root=INFO
+logging.level.com.prueba.empleados.service=DEBUG
+logging.file.name=logs/app.log 
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} [%level] - %msg%n
+
+
 3. Compila y ejecuta
 bash
-Copiar
-Editar
+
 mvn clean install
 mvn spring-boot:run
+
+
+
+
 📚 Documentación Swagger
 Una vez que la aplicación esté corriendo, accede a:
 
@@ -58,35 +72,47 @@ Los endpoints de /api/** están protegidos.
 Swagger y la documentación se excluyen del filtro de seguridad:
 
 java
-Copiar
-Editar
 .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
-Puedes usar autenticación básica o JWT, según tu configuración.
 
 🧪 Endpoints principales
 Método	Ruta	Descripción
-GET	/api/employee	Lista todos los empleados
-POST	/api/employee	Crea un nuevo empleado
-GET	/api/employee/{id}	Detalles de un empleado por ID
-PUT	/api/employee/{id}	Actualiza los datos del empleado
-DELETE	/api/employee/{id}	Elimina un empleado
+GET	/api/getAll/employee	Lista todos los empleados
+POST	/api/register/employees	Crea un nuevo empleado
+GET	/api/update/employees	Detalles de un empleado por ID
+PUT	/api/delete/{id}	Actualiza los datos del empleado
+DELETE	/security/login 	Elimina un empleado
 
 📁 Estructura del Proyecto
-arduino
-Copiar
+
 Editar
-src/
-└── main/
-    ├── java/
-    │   └── com/empresa/empleados/
-    │       ├── controller/
-    │       ├── service/
-    │       ├── repository/
-    │       ├── model/
-    │       └── config/
-    └── resources/
-        ├── application.properties
-        └── static/
+├── main
+│   ├── java
+│   │   └── com
+│   │       └── prueba
+│   │           └── empleados
+│   │               ├── config
+│   │               ├── controller
+│   │               ├── entity
+│   │               ├── exceptions
+│   │               ├── mapper
+│   │               ├── record
+│   │               ├── repository
+│   │               ├── security
+│   │               ├── service
+│   │               └── utils
+│   └── resources
+│       ├── application.properties
+│       ├── data.sql
+│       ├── messages
+│       │   └── messages.properties
+│       ├── static
+│       └── templates
+└── test
+    └── java
+        └── com
+            └── prueba
+                └── empleados
+                    └── EmpleadosApplicationTests.java
 👨‍💻 Autor
 Jonathan Sanchez
 
